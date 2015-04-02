@@ -46,11 +46,6 @@ public class MixinPacketUpdateSign implements PacketUpdateSign {
     }
 
     @Override
-    public PlayPacketEvent getEvent(ConnectionUser player) {
-        return new PacketUpdateSignEvent(this, player);
-    }
-
-    @Override
     public State getState() {
         return State.Play;
     }

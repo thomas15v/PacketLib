@@ -58,11 +58,6 @@ public class MixinPacketCollectItem implements PacketcollectItem {
     }
 
     @Override
-    public PlayPacketEvent getEvent(ConnectionUser player) {
-        return new PacketCollectItemEvent(this, player);
-    }
-
-    @Override
     public State getState() {
         return State.Play;
     }

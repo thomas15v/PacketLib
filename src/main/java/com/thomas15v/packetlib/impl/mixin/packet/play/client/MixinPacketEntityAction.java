@@ -28,11 +28,6 @@ public class MixinPacketEntityAction implements PacketEntityAction {
     private int auxData;
 
     @Override
-    public PlayPacketEvent getEvent(ConnectionUser player) {
-        return new PacketEntityActionEvent(this, player);
-    }
-
-    @Override
     public State getState() {
         return State.Play;
     }

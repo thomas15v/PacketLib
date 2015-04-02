@@ -7,6 +7,7 @@ import net.minecraft.server.MinecraftServer;
  */
 public class EntityUtil {
 
+    @Deprecated
     public static Object getEntityObject(int id ){
         return MinecraftServer.getServer().getEntityWorld().getEntityByID(id);
     }

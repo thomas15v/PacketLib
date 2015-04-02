@@ -24,9 +24,4 @@ public class MixinPacketAnimation implements PacketAnimation {
     public Bound getBound() {
         return Bound.Client;
     }
-
-    @Override
-    public PlayPacketEvent getEvent(ConnectionUser player) {
-        return new PacketAnimationEvent(this, player);
-    }
 }
