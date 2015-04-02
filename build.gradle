@@ -15,6 +15,9 @@ buildscript {
     }
 }
 
+
+evaluationDependsOn('Sponge')
+
 apply plugin: 'forge'
 apply plugin: 'maven'
 
@@ -45,7 +48,7 @@ repositories{
 }
 
 dependencies{
-    compile "org.spongepowered:sponge:1.8-1341-1.1DEV-0"
+    compile project("Sponge")
 
 }
 
