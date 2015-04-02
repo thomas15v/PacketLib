@@ -5,5 +5,5 @@ import com.thomas15v.packetlib.api.packet.play.PlayPacket;
 /**
  * Created by thomas15v on 1/04/15.
  */
-public abstract class PacketAnimation extends PlayPacket {
+public interface PacketAnimation extends PlayPacket {
 }

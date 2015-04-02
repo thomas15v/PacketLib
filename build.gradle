@@ -15,14 +15,15 @@ buildscript {
     }
 }
 
-evaluationDependsOn("Sponge")
-
 apply plugin: 'forge'
 apply plugin: 'maven'
 
 version = "1.0"
 group= "com.thomas15v.packetlib" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "PacketLib"
+
+ext.mixinSrg = new File(project.buildDir, "tmp/mixins/mixins.srg")
+ext.mixinRefMap = new File(project.buildDir, "tmp/mixins/mixins.sponge.refmap.json")
 
 sourceCompatibility = '1.6'
 targetCompatibility = '1.6'
@@ -39,9 +40,13 @@ minecraft {
     mappings = "snapshot_20141130"
 }
 
+repositories{
+    maven {url = "https://repo.spongepowered.org/maven"}
+}
 
 dependencies{
-    compile project('Sponge')
+    compile "org.spongepowered:sponge:1.8-1341-1.1DEV-0"
+
 }
 
 processResources
@@ -63,3 +68,37 @@ processResources
                 exclude 'mcmod.info'
             }
         }
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += [ '-Xlint:all', '-Xlint:-path', "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=mixins.srg" ]
+    options.deprecation = true
+    options.encoding = 'utf8'
+}
+
+compileJava {
+    options.compilerArgs += [
+            '-Xlint:all',
+            '-Xlint:-path',
+            '-Xlint:-processing',
+            "-AoutSrgFile=${project.mixinSrg.getCanonicalPath()}",
+            "-AoutRefMapFile=${project.mixinRefMap.getCanonicalPath()}",
+            "-AreobfSrgFile=${project.file('build/srgs/mcp-srg.srg').getCanonicalPath()}"
+    ]
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+task copySrgs(type: Copy, dependsOn: "genSrgs") {
+    // using some FG hacks here
+    from plugins.getPlugin("forge").delayedFile("{SRG_DIR}")
+    include '**/*.srg'
+    into 'build/srgs'
+}
+setupDecompWorkspace.dependsOn copySrgs
+setupDevWorkspace.dependsOn copySrgs
+compileJava.dependsOn copySrgs
+
+
+reobf {
+    reobf.addExtraSrgFile project.mixinSrg
+}

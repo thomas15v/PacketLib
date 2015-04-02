@@ -24,12 +24,12 @@ public abstract class MixinNetworkManager {
     private INetHandler packetListener;
 
 
-    @Inject(method = "dispatchPacket", at = @At("HEAD"))
+    @Inject(method = "dispatchPacket", at = @At("HEAD"), remap = false)
     public void onSendPacket(final Packet packet, final GenericFutureListener[] futureListeners, CallbackInfo ci){
         handlePacket(packet);
     }
 
-    @Inject(method = "channelRead0", at = @At("HEAD"))
+    @Inject(method = "channelRead0", at = @At("HEAD"), remap = false)
     public void onRecievePacket(ChannelHandlerContext context, Packet packet, CallbackInfo ci){
         handlePacket(packet);
     }

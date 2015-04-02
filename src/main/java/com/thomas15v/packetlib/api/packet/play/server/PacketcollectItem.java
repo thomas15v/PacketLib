@@ -4,13 +4,13 @@ import com.thomas15v.packetlib.api.packet.play.PlayPacket;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.entity.Item;
 
-public abstract class PacketcollectItem extends PlayPacket {
+public interface PacketcollectItem extends PlayPacket {
 
-    public abstract Entity getEntity();
+    public Entity getEntity();
 
-    public abstract int getEntityId();
+    public int getEntityId();
 
-    public abstract Item getItem();
+    public Item getItem();
 
-    public abstract int getItemEntityId();
+    public int getItemEntityId();
 }

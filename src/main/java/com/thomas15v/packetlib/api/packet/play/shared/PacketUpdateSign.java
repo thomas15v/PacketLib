@@ -10,11 +10,11 @@ import org.spongepowered.api.world.World;
 /**
  * Created by thomas15v on 31/03/15.
  */
-public abstract class PacketUpdateSign extends PlayPacket {
+public interface PacketUpdateSign extends PlayPacket {
 
-    public abstract Text[] getText();
+    Text[] getText();
 
-    public abstract void setText(Text[] text);
+    void setText(Text[] text);
 
-    public abstract Vector3i getLocation();
+    Vector3i getLocation();
 }

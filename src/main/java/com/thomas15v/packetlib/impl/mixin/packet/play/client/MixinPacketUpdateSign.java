@@ -5,6 +5,7 @@ import com.thomas15v.packetlib.api.packet.Bound;
 import com.thomas15v.packetlib.api.ConnectionUser;
 import com.thomas15v.packetlib.api.event.play.PlayPacketEvent;
 import com.thomas15v.packetlib.api.event.play.shared.PacketUpdateSignEvent;
+import com.thomas15v.packetlib.api.packet.State;
 import com.thomas15v.packetlib.api.packet.play.shared.PacketUpdateSign;
 import com.thomas15v.packetlib.impl.util.TextUtil;
 import net.minecraft.network.play.client.C12PacketUpdateSign;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.mod.util.VecHelper;
 
 @Mixin(C12PacketUpdateSign.class)
-public class MixinPacketUpdateSign extends PacketUpdateSign {
+public class MixinPacketUpdateSign implements PacketUpdateSign {
 
     @Shadow
     private BlockPos pos;
@@ -47,5 +48,10 @@ public class MixinPacketUpdateSign extends PacketUpdateSign {
     @Override
     public PlayPacketEvent getEvent(ConnectionUser player) {
         return new PacketUpdateSignEvent(this, player);
+    }
+
+    @Override
+    public State getState() {
+        return State.Play;
     }
 }

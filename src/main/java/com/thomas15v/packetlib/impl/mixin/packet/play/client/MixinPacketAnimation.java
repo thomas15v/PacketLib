@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
  * Created by thomas15v on 31/03/15.
  */
 @Mixin(C0APacketAnimation.class)
-public class MixinPacketAnimation extends PacketAnimation {
+public class MixinPacketAnimation implements PacketAnimation {
 
     @Override
     public State getState() {

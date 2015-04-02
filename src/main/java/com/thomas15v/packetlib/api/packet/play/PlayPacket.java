@@ -9,12 +9,10 @@ import com.thomas15v.packetlib.api.packet.Packet;
 /**
  * Created by thomas15v on 1/04/15.
  */
-public abstract class PlayPacket implements Packet {
+public interface PlayPacket extends Packet {
 
-    public abstract PlayPacketEvent getEvent(ConnectionUser player);
+    public PlayPacketEvent getEvent(ConnectionUser player);
 
     @Override
-    public State getState(){
-        return State.Play;
-    }
+    public State getState();
 }

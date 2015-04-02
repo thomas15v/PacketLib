@@ -6,7 +6,7 @@ import org.spongepowered.api.entity.Entity;
 /**
  * Created by thomas15v on 1/04/15.
  */
-public abstract class PacketEntityAction extends PlayPacket {
+public interface PacketEntityAction extends PlayPacket {
 
     public enum EntityAction{
         START_SNEAKING,
@@ -18,10 +18,10 @@ public abstract class PacketEntityAction extends PlayPacket {
         OPEN_INVENTORY;
     }
 
-    public abstract EntityAction getAction();
+    EntityAction getAction();
 
-    public abstract void setAction(EntityAction action);
+    void setAction(EntityAction action);
 
-    public abstract Entity getEntity();
+    Entity getEntity();
 
 }
