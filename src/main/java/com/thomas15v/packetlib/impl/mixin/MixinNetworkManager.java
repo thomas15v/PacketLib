@@ -1,7 +1,6 @@
 package com.thomas15v.packetlib.impl.mixin;
 
 import com.thomas15v.packetlib.api.ConnectionUser;
-import com.thomas15v.packetlib.api.packet.play.PlayPacket;
 import com.thomas15v.packetlib.impl.util.EventUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -35,9 +34,9 @@ public abstract class MixinNetworkManager {
     }
 
     private void handlePacket(Packet packet){
-        if (packet instanceof PlayPacket) {
+        if (packet instanceof com.thomas15v.packetlib.api.packet.Packet) {
             ConnectionUser player = (ConnectionUser) ((NetHandlerPlayServer) packetListener).playerEntity;
-            EventUtil.postEventFor((PlayPacket) packet, player);
+            EventUtil.postEventFor((com.thomas15v.packetlib.api.packet.Packet) packet, player);
         }
     }
 }

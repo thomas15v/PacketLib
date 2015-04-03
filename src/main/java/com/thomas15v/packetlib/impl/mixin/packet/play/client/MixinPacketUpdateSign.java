@@ -2,9 +2,6 @@ package com.thomas15v.packetlib.impl.mixin.packet.play.client;
 
 import com.flowpowered.math.vector.Vector3i;
 import com.thomas15v.packetlib.api.packet.Bound;
-import com.thomas15v.packetlib.api.ConnectionUser;
-import com.thomas15v.packetlib.api.event.play.PlayPacketEvent;
-import com.thomas15v.packetlib.api.event.play.shared.PacketUpdateSignEvent;
 import com.thomas15v.packetlib.api.packet.State;
 import com.thomas15v.packetlib.api.packet.play.shared.PacketUpdateSign;
 import com.thomas15v.packetlib.impl.util.TextUtil;

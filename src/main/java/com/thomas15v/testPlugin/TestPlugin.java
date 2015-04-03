@@ -1,4 +1,4 @@
-package com.thomas15v.packetlib;
+package com.thomas15v.testPlugin;
 
 import com.thomas15v.packetlib.api.event.Event;
 import com.thomas15v.packetlib.api.event.PacketListener;

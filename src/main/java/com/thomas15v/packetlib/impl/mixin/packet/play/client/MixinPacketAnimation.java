@@ -1,10 +1,7 @@
 package com.thomas15v.packetlib.impl.mixin.packet.play.client;
 
 import com.thomas15v.packetlib.api.packet.Bound;
-import com.thomas15v.packetlib.api.ConnectionUser;
 import com.thomas15v.packetlib.api.packet.State;
-import com.thomas15v.packetlib.api.event.play.PlayPacketEvent;
-import com.thomas15v.packetlib.api.event.play.client.PacketAnimationEvent;
 import com.thomas15v.packetlib.api.packet.play.client.PacketAnimation;
 import net.minecraft.network.play.client.C0APacketAnimation;
 import org.spongepowered.asm.mixin.Mixin;
