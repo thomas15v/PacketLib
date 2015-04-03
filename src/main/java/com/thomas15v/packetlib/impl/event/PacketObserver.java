@@ -21,13 +21,14 @@ public class PacketObserver implements IPacketManager {
     @Override
     public boolean post(Packet packet, ConnectionUser connectionUser){
         Class<? extends Packet> clazz = Packetdict.getAPIPacketFor(packet.getClass());
-        System.out.println(clazz + " " + transformers);
-        if (transformers.containsKey(clazz))
+        System.out.println( packet.getClass() + " " + clazz + " " + transformers);
+        if (transformers.containsKey(clazz)){
+            PacketEvent event = new PlayEvent(packet, connectionUser);
             for (IPacketTransformer listener : transformers.get(clazz)) {
-                PacketEvent event = new PlayEvent(packet, connectionUser);
                 listener.onPacket(event);
-                return event.isCancelled();
             }
+            return event.isCancelled();
+        }
         return false;
     }
 

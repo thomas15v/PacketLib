@@ -36,8 +36,7 @@ public abstract class MixinNetworkManager {
     private void handlePacket(Packet packet, CallbackInfo ci){
         if (packet instanceof com.thomas15v.packetlib.api.packet.Packet) {
             ConnectionUser player = (ConnectionUser) ((NetHandlerPlayServer) packetListener).playerEntity;
-            if (EventUtil.postEventFor((com.thomas15v.packetlib.api.packet.Packet) packet, player))
-                ci.cancel();
+            EventUtil.postEventFor((com.thomas15v.packetlib.api.packet.Packet) packet, player);
         }
     }
 }

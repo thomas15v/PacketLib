@@ -1,6 +1,8 @@
 {
   "package": "com.thomas15v.packetlib.impl.mixin",
   "mixins": [
+    "packet.play.client.MixinPacketAnimation",
+    "packet.play.client.MixinPacketEntityAction",
     "packet.play.client.MixinPacketUpdateSign",
 
     "packet.play.server.MixinPacketCollectItem",

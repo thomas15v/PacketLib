@@ -16,6 +16,6 @@ public class TestPlugin {
     public void onServerStarted(ServerStartedEvent event) throws Exception {
         IPacketService service = event.getGame().getServiceManager().provide(IPacketService.class).get();
         IPacketManager packetManager = service.getPacketManager();
-        packetManager.register(new PacketTrans());
+        packetManager.register(new PacketTransformer());
     }
 }

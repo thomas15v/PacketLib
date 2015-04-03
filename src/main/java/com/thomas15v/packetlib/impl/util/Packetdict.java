@@ -4,9 +4,11 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.thomas15v.packetlib.api.packet.Packet;
 import com.thomas15v.packetlib.api.packet.play.client.PacketAnimation;
+import com.thomas15v.packetlib.api.packet.play.client.PacketEntityAction;
 import com.thomas15v.packetlib.api.packet.play.shared.PacketUpdateSign;
 import com.thomas15v.packetlib.api.packet.play.server.PacketcollectItem;
 import net.minecraft.network.play.client.C0APacketAnimation;
+import net.minecraft.network.play.client.C0BPacketEntityAction;
 import net.minecraft.network.play.server.S0DPacketCollectItem;
 import net.minecraft.network.play.server.S33PacketUpdateSign;
 
@@ -30,9 +32,10 @@ public class Packetdict {
 
     static {
         clazzmap = HashBiMap.create();
-        clazzmap.put(PacketAnimation.class, C0APacketAnimation.class);
+        clazzmap.put(   PacketAnimation.class, C0APacketAnimation.class);
         clazzmap.put(PacketUpdateSign.class, S33PacketUpdateSign.class);
         clazzmap.put(PacketcollectItem.class, S0DPacketCollectItem.class);
+        clazzmap.put(PacketEntityAction.class, C0BPacketEntityAction.class);
     }
 
     public static Packet createFor(Class clazz, Object... params) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
