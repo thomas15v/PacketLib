@@ -1,7 +1,7 @@
 package com.thomas15v.packetlib.api.service;
 
 import com.thomas15v.packetlib.api.ConnectionUser;
-import com.thomas15v.packetlib.api.event.PacketManager;
+import com.thomas15v.packetlib.api.event.IPacketManager;
 import com.thomas15v.packetlib.api.packet.Packet;
 import org.spongepowered.api.entity.player.Player;
 
@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface IPacketService {
 
-    PacketManager getPacketManager();
+    IPacketManager getPacketManager();
 
     Packet createPacketFor(Class Packet) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException;
 

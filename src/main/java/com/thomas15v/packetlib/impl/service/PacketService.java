@@ -1,7 +1,7 @@
 package com.thomas15v.packetlib.impl.service;
 
 import com.thomas15v.packetlib.api.ConnectionUser;
-import com.thomas15v.packetlib.api.event.PacketManager;
+import com.thomas15v.packetlib.api.event.IPacketManager;
 import com.thomas15v.packetlib.api.packet.Packet;
 import com.thomas15v.packetlib.api.service.IPacketService;
 import com.thomas15v.packetlib.impl.event.PacketObserver;
@@ -22,7 +22,7 @@ public class PacketService implements IPacketService {
     }
 
     @Override
-    public PacketManager getPacketManager() {
+    public IPacketManager getPacketManager() {
         return packetObserver;
     }
 

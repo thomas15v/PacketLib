@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Shadow;
  * Created by thomas15v on 1/04/15.
  */
 @Mixin(EntityPlayerMP.class)
-public class MixinEntityPlayerMP implements ConnectionUser {
+public abstract class MixinEntityPlayerMP implements ConnectionUser {
 
     @Shadow
     public NetHandlerPlayServer playerNetServerHandler;

@@ -25,18 +25,19 @@ public abstract class MixinNetworkManager {
 
     @Inject(method = "dispatchPacket", at = @At("HEAD"), remap = false)
     public void onSendPacket(final Packet packet, final GenericFutureListener[] futureListeners, CallbackInfo ci){
-        handlePacket(packet);
+        handlePacket(packet, ci);
     }
 
     @Inject(method = "channelRead0", at = @At("HEAD"), remap = false)
     public void onRecievePacket(ChannelHandlerContext context, Packet packet, CallbackInfo ci){
-        handlePacket(packet);
+        handlePacket(packet, ci);
     }
 
-    private void handlePacket(Packet packet){
+    private void handlePacket(Packet packet, CallbackInfo ci){
         if (packet instanceof com.thomas15v.packetlib.api.packet.Packet) {
             ConnectionUser player = (ConnectionUser) ((NetHandlerPlayServer) packetListener).playerEntity;
-            EventUtil.postEventFor((com.thomas15v.packetlib.api.packet.Packet) packet, player);
+            if (EventUtil.postEventFor((com.thomas15v.packetlib.api.packet.Packet) packet, player))
+                ci.cancel();
         }
     }
 }

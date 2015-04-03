@@ -1,18 +1,19 @@
 package com.thomas15v.packetlib.impl.event;
 
 import com.thomas15v.packetlib.api.ConnectionUser;
-import com.thomas15v.packetlib.api.event.Event;
+import com.thomas15v.packetlib.api.event.PacketEvent;
 import com.thomas15v.packetlib.api.packet.Packet;
 
 /**
  * Created by thomas15v on 2/04/15.
  */
-public class PlayEvent implements Event {
+public class PlayEvent<P extends Packet> implements PacketEvent<P> {
 
-    private Packet packet;
+    private P packet;
     private ConnectionUser connectionUser;
+    private boolean cancel;
 
-    public PlayEvent(Packet packet, ConnectionUser connectionUser){
+    public PlayEvent(P packet, ConnectionUser connectionUser){
         this.packet = packet;
         this.connectionUser = connectionUser;
     }
@@ -23,7 +24,22 @@ public class PlayEvent implements Event {
     }
 
     @Override
-    public Packet getPacket() {
+    public P getPacket() {
         return packet;
+    }
+
+    @Override
+    public boolean isType(Class clazz) {
+        return clazz.isInstance(getPacket());
+    }
+
+    @Override
+    public boolean isCancelled() {
+        return cancel;
+    }
+
+    @Override
+    public void setCancelled(boolean cancel) {
+        this.cancel = cancel;
     }
 }

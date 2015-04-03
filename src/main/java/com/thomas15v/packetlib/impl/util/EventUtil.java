@@ -10,13 +10,8 @@ import org.spongepowered.mod.SpongeMod;
  */
 public class EventUtil {
 
-    public static void postEventFor(Packet packet, ConnectionUser player){
+    public static boolean postEventFor(Packet packet, ConnectionUser player){
         IPacketService eventManager =  SpongeMod.instance.getGame().getServiceManager().provide(IPacketService.class).get();
-        eventManager.getPacketManager().post(packet, player);
+        return eventManager.getPacketManager().post(packet, player);
     }
-
-    public static void postEventFor(Packet packet){
-
-    }
-
 }
