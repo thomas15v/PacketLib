@@ -4,6 +4,7 @@
     "packet.play.client.MixinPacketAnimation",
     "packet.play.client.MixinPacketEntityAction",
     "packet.play.client.MixinPacketUpdateSign",
+    "packet.play.client.MixinPacketInput",
 
     "packet.play.server.MixinPacketCollectItem",
     "packet.play.server.MixinPacketUpdateSign",

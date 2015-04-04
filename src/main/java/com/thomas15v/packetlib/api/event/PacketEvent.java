@@ -7,7 +7,7 @@ import org.spongepowered.api.util.event.Cancellable;
 /**
  * Created by thomas15v on 2/04/15.
  */
-public interface PacketEvent<P extends Packet> extends Cancellable {
+public interface PacketEvent<P extends Packet> {
 
     ConnectionUser getConnectionUser();
 

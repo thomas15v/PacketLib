@@ -101,6 +101,14 @@ setupDecompWorkspace.dependsOn copySrgs
 setupDevWorkspace.dependsOn copySrgs
 compileJava.dependsOn copySrgs
 
+def manifestEntries = [
+        "FMLCorePlugin": "com.thomas15v.packetlib.PacketLibCoreMod",
+]
+
+jar {
+    manifest.mainAttributes(manifestEntries)
+}
+
 
 reobf {
     reobf.addExtraSrgFile project.mixinSrg

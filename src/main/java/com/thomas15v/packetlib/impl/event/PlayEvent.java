@@ -33,12 +33,14 @@ public class PlayEvent<P extends Packet> implements PacketEvent<P> {
         return clazz.isInstance(getPacket());
     }
 
-    @Override
+
+    //todo: fix canceling events, may be a mixin issues.
+    //@Override
     public boolean isCancelled() {
         return cancel;
     }
 
-    @Override
+    //@Override
     public void setCancelled(boolean cancel) {
         this.cancel = cancel;
     }
