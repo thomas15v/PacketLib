@@ -7,6 +7,10 @@ import com.thomas15v.packetlib.api.packet.Packet;
  */
 public interface IPacketTransformer<I extends Packet> {
 
+    /**
+     * Gets called when a packet gets recieved or send!
+     * @param event
+     */
     public void onPacket(PacketEvent<I> event);
 
     /**

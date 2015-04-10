@@ -5,7 +5,8 @@ import com.thomas15v.packetlib.api.packet.Packet;
 import org.spongepowered.api.util.event.Cancellable;
 
 /**
- * Created by thomas15v on 2/04/15.
+ * Event that contains the ConnectionUser and the packet. Gets called when a packet gets recieved or send.
+ * @param <P>
  */
 public interface PacketEvent<P extends Packet> {
 

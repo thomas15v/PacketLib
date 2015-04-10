@@ -17,5 +17,6 @@ public class TestPlugin {
         IPacketService service = event.getGame().getServiceManager().provide(IPacketService.class).get();
         IPacketManager packetManager = service.getPacketManager();
         packetManager.register(new PacketTransformer());
+        System.out.println("testplugin started!, expect masive spam!!!!");
     }
 }
