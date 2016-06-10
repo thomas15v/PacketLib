@@ -1,0 +1,8 @@
+{
+  "required": false,
+  "package": "com.thomas15v.packetlib.mixin",
+  "mixins": [
+    "MixinEntityPlayerMP",
+    "MixinNetworkManager"
+  ]
+}

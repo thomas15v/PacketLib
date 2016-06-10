@@ -1,0 +1,11 @@
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply from: '../shared.gradle'
+apply plugin: 'generator'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'generated'
+        }
+    }
+}

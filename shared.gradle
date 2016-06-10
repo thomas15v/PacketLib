@@ -1,0 +1,33 @@
+minecraft {
+    version = "1.8.9-11.15.1.1890-1.8.9"
+    runDir = "run"
+
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not allways work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = "stable_22"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+}
+
+repositories{
+    maven {
+        name "sponge"
+        url "https://repo.spongepowered.org/maven/"
+    }
+    maven {
+        name "shared"
+        url "http://files.minecraftforge.net/maven"
+    }
+}
+
+
+dependencies {
+    compile 'org.jetbrains.java.decompiler:fernflower:sponge-SNAPSHOT'
+    compile(group: "org.spongepowered", name : "spongeforge", classifier: "dev", version : "1.8.9-1890-4.2.0-BETA-1402")
+
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
