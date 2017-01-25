@@ -1,5 +1,5 @@
 minecraft {
-    version = "1.8.9-11.15.1.1890-1.8.9"
+    version = "1.11.2-13.20.0.2226"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -7,7 +7,7 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "stable_22"
+    mappings = "snapshot_20161220"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
@@ -25,7 +25,7 @@ repositories{
 
 dependencies {
     compile 'org.jetbrains.java.decompiler:fernflower:sponge-SNAPSHOT'
-    compile(group: "org.spongepowered", name : "spongeforge", classifier: "dev", version : "1.8.9-1890-4.2.0-BETA-1402")
+    compile(group: "org.spongepowered", name : "spongeforge", classifier: "dev", version : "1.11.2-2201-6.0.0-BETA-2069")
 
 }
 
