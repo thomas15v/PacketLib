@@ -26,7 +26,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 apply from: 'shared.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "1.0"
+version = "1.1"
 group= "com.thomas15v.com.thomas15v.packetlib" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "PacketLib"
 
